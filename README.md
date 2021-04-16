@@ -279,7 +279,7 @@ note.phonemes = "s p r I N" -- 定义音标
 // 返回:
 // result: 成功获取数值，返回VS_TRUE（即1），失败时返回VS_FALSE（即0）
 // value: 对话框获取到的返回值
-VSBool result, VSInt32 value = VSDlgGetIntValue(VSCString fieldname);
+VSBool result, VSInt32 value VSDlgGetIntValue(VSCString fieldname);
 ```
 
 上面的API，表示了它需要传入一个字符串参数，然后API会返回一个布尔值和32位带符号整型值。下面则展示如何在插件中通过Lua使用这个API。
@@ -373,7 +373,7 @@ VSInt32 VSDlgDoModal();
 // 返回:
 // result: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // value: 获得到的整型数值
-VSBool result, VSInt32 value = VSDlgGetIntValue ( VSCString fieldName );
+VSBool result, VSInt32 value VSDlgGetIntValue ( VSCString fieldName );
 ```
 
 > VSBool result, VSBool value VSDlgGetBoolValue( VSCString fieldName )
@@ -387,7 +387,7 @@ VSBool result, VSInt32 value = VSDlgGetIntValue ( VSCString fieldName );
 // 返回:
 // result: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // value: 获得到的布尔值
-VSBool result, VSBool value = VSDlgGetBoolValue ( VSCString fieldName );
+VSBool result, VSBool value VSDlgGetBoolValue ( VSCString fieldName );
 ```
 
 > VSBool result, VSFloat value VSDlgGetFloatValue(VSCString fieldName)
@@ -527,7 +527,7 @@ void VSSeekToBeginNote();
 // 返回:
 // result: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // value: 获得到的音符信息
-VSBool result, VSLuaNote note = VSGetNextNote();
+VSBool result, VSLuaNote note VSGetNextNote();
 ```
 
 
@@ -583,7 +583,7 @@ VSBool VSRemoveNote(VSLuaNote note);
 // 参数: None
 // result: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // noteEx: 带有表情控制参数的音符信息
-VSBool result, VSLuaNoteEx noteEx = VSGetNextNoteEx();
+VSBool result, VSLuaNoteEx noteEx VSGetNextNoteEx();
 ```
 
 > VSBool VSUpdateNoteEx(VSLuaNoteEx noteEx)
@@ -710,7 +710,7 @@ VSBool VSSeekToBeginControl( VSCString controlType );
 // 返回值:
 // result: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // control: 获取到的控制参数断点
-VSBool result, VSLuaControl control = VSGetNextControl(VSCString controlType);
+VSBool result, VSLuaControl control VSGetNextControl(VSCString controlType);
 ```
 
 > VSBool VSUpdateControl(VSLuaControl control)
@@ -822,7 +822,7 @@ void VSSeekToBeginTimeSig();
 // 返回:
 // result: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // tempo: 获取到的节拍
-VSBool result, VSLuaTempo tempo = VSGetNextTempo();
+VSBool result, VSLuaTempo tempo VSGetNextTempo();
 ```
 
 > VSBool result, VSLuaTimeSig timeSig VSGetNextTimeSig()
@@ -834,7 +834,7 @@ VSBool result, VSLuaTempo tempo = VSGetNextTempo();
 // 返回:
 // result: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // timeSig: 获取到的时间拍号
-VSBool result, VSLuaTimeSig timeSig = VSGetNextTimeSig();
+VSBool result, VSLuaTimeSig timeSig VSGetNextTimeSig();
 ```
 
 ## 7.3 通过时间点随机获取信息
@@ -851,7 +851,7 @@ VSBool result, VSLuaTimeSig timeSig = VSGetNextTimeSig();
 // 返回:
 // result: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // tempo: 单精度浮点数类型的BPM值
-VSBool result, VSFloat tempo = VSGetTempoAt( VSInt32 posTick );
+VSBool result, VSFloat tempo VSGetTempoAt( VSInt32 posTick );
 ```
 > VSBool result, VSInt32 numerator, VSInt32 denominator VSGetTimeSigAt(VSInt32 posTick)
 
@@ -864,7 +864,7 @@ VSBool result, VSFloat tempo = VSGetTempoAt( VSInt32 posTick );
 // result: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // numerator: 时间拍号分子
 // denominator: 时间拍号分母
-VSBool result, VSInt32 numerator, VSInt32 denominator = VSGetTimeSigAt( VSInt32 posTick );
+VSBool result, VSInt32 numerator, VSInt32 denominator VSGetTimeSigAt( VSInt32 posTick );
 ```
 
 ## 7.4 获取整个序列的信息
@@ -968,7 +968,7 @@ struct VSLuaMusicalSinger {
 // 返回:
 // result: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // part: 获取到的音乐序列信息
-VSBool result, VSLuaMusicalPart part = VSGetMusicalPart();
+VSBool result, VSLuaMusicalPart part VSGetMusicalPart();
 ```
 
 ## 8.3 编辑音乐序列信息
@@ -994,7 +994,7 @@ VSBool VSUpdateMusicalPart( VSLuaMusicalPart part );
 // 返回:
 // result: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // singer: 获取到的虚拟歌手属性信息
-VSBool result, VSLuaMusicalSinger singer = VSGetMusicalPartSinger();
+VSBool result, VSLuaMusicalSinger singer VSGetMusicalPartSinger();
 ```
 
 ## 8.5 程序范例
@@ -1030,7 +1030,7 @@ struct VSLuaWAVPart {
 // 返回:
 // result: 成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // wavPart: 立体声WAV音频序列的信息
-VSBool result, VSLuaWAVPart wavPart = VSGetStereoWAVPart();
+VSBool result, VSLuaWAVPart wavPart VSGetStereoWAVPart();
 ```
 
 > void VSSeekToBeginMonoWAVPart()
