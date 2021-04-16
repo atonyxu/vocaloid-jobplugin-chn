@@ -542,7 +542,7 @@ VSBool result, VSLuaNote note = VSGetNextNote();
 ```cpp
 // 更新音符中的数值信息
 // 参数: 更新过数值信息的音符
-// 结果: 更新功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
+// 结果: 更新成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 VSBool VSUpdateNote( VSLuaNote note );
 ```
 
@@ -555,7 +555,7 @@ VSBool VSUpdateNote( VSLuaNote note );
 ```cpp
 // 插入一个音符
 // 参数: 需要被添加的音符
-// 返回: 添加功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
+// 返回: 添加成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 VSBool VSInsertNote( VSLuaNote note );
 ```
 
@@ -568,7 +568,7 @@ VSBool VSInsertNote( VSLuaNote note );
 ```cpp
 // 删除音符
 // 参数: 需要被删除的音符
-// 返回: 删除功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
+// 返回: 删除成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 VSBool VSRemoveNote(VSLuaNote note);
 ```
 
@@ -581,7 +581,7 @@ VSBool VSRemoveNote(VSLuaNote note);
 ```cpp
 // 获取下一个带有表情控制参数的音符
 // 参数: None
-// result: 获取功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
+// result: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 // noteEx: 带有表情控制参数的音符信息
 VSBool result, VSLuaNoteEx noteEx = VSGetNextNoteEx();
 ```
@@ -593,7 +593,7 @@ VSBool result, VSLuaNoteEx noteEx = VSGetNextNoteEx();
 ```cpp
 // 更新带有表情控制参数的音符信息
 // 参数: noteEx, 带有表情控制参数的音符
-// 返回值: 获取功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
+// 返回值: 获取成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 VSBool VSUpdateNoteEx( VSLuaNoteEx noteEx );
 ```
 
@@ -604,7 +604,7 @@ VSBool VSUpdateNoteEx( VSLuaNoteEx noteEx );
 ```cpp
 // 插入带有表情控制参数的音符
 // 参数: noteEx，带有表情控制参数的音符
-// 返回值: 插入功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
+// 返回值: 插入成功返回VS_TRUE（即1），失败返回VS_FALSE（即0）
 VSBool VSInsertNoteEx( VSLuaNoteEx noteEx );
 ```
 
