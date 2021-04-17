@@ -1,7 +1,7 @@
 <h1 style="text-align: center">VOCALOID™</h1>
 <h1 style="text-align: center">Job Plugin API 参考手册</h1>
 <div style="text-align: center;">Article ID: VJP-1.0.0.3 / API Version: 3.0.1.0</div>
-<div style="text-align: center;">翻译 By <a href="https://space.bilibili.com/180668218">白糖の正义铃</a></div>
+<div style="text-align: center;">翻译 By <a href="https://space.bilibili.com/180668218">白糖の正义铃</a> / V1.0</div>
 
 ---
 
@@ -136,7 +136,7 @@ Job Plugin 任务插件提供了一种渠道，可以根据用户的需要，通
 ## 2.2 入口函数(entry point function)
 
 **任务插件必须始终包含一个函数名为main的主函数**，它将作为本插件的入口函数(entry point function)。此外，本函数的结尾也是整个插件运行的结尾。
- 
+
 ### 2.2.1 参数列表
 
 main主函数会被传入两个参数。这两个参数均为Lua的Table类型变量。
@@ -945,9 +945,9 @@ struct VSLuaMusicalPart {
 struct VSLuaMusicalSinger {
 
 	// 声库属性
-    VSInt32 vBS; // Virtual Bank Select
+    VSInt32 vBS; // 声库语种属性 0日语 1英语 2韩语 3西班牙语 4汉语
     VSInt32 vPC; // Virtual Program Change.
-    VSCString compID; // Component ID.
+    VSCString compID; // 声库制品ID
 
     // 声音参数
     VSInt32 breathiness; // 呼吸度
